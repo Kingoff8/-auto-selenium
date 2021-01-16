@@ -1,5 +1,4 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 import time
 
 try:
@@ -7,12 +6,15 @@ try:
     browser = webdriver.Chrome()
     browser.get(link)
 
+    input = browser.find_element_by_css_selector("div.first_block > div.first_class > input.first")
+    input.send_keys('Тест')
 
-#    input1 = browser.find_elements_by_css_selector('required')
-    #input1 = browser.find_element_by_xpath("//input[@required]")
-    inputs = browser.find_elements_by_css_selector('input[required]')
-    for input in inputs:
-        input.send_keys("Тест")
+    input2 = browser.find_element_by_css_selector("div.first_block > div.second_class > input.second")
+    input2.send_keys('Тест2')
+
+    input3 = browser.find_element_by_css_selector("div.first_block > div.third_class > input.third")
+    input3.send_keys('Тест3')
+
 
     time.sleep(1)
     button = browser.find_element_by_tag_name("button")
@@ -25,3 +27,4 @@ finally:
     time.sleep(1)
     # закрываем браузер после всех манипуляций
     browser.quit()
+    # номер моего решения Решение #349273427
