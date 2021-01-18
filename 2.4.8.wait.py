@@ -3,6 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 import math
+import time
 
 browser = webdriver.Chrome()
 
@@ -31,4 +32,5 @@ try:
     sbm.click()
 
 finally:
-    pass
+        time.sleep(3)
+        browser.quit()
