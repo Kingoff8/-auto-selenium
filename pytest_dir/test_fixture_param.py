@@ -4,13 +4,6 @@ import math
 import pytest
 from selenium import webdriver
 
-@pytest.fixture(scope="function")
-def browser():
-    print("\nstart browser for test..")
-    browser = webdriver.Chrome()
-    yield browser
-    print("\nquit browser..")
-    browser.quit()
 
 @pytest.mark.parametrize('link', [
 "https://stepik.org/lesson/236895/step/1",
@@ -35,4 +28,3 @@ def test_guest_should_see_login_link(browser, link):
     time.sleep(5)
     msg = browser.find_element_by_class_name("smart-hints__hint")
     assert "Correct!" in msg.text, "Тест завершён не корректно"
-    
